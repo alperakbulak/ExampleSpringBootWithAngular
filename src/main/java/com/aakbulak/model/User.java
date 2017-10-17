@@ -14,27 +14,21 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name="APP_USER")
+@Getter
+@Setter
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
     private Long id;
 
     @NotEmpty
     @Column(name="NAME", nullable = false)
-    @Getter
-    @Setter
     private String name;
 
     @Column(name="AGE", nullable=false)
-    @Getter
-    @Setter
     private Integer age;
 
     @Column(name="SALARY", nullable=false)
-    @Getter
-    @Setter
     private double salary;
 
     @Override
