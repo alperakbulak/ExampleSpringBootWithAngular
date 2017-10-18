@@ -5,3 +5,15 @@ n
 >src/main/java/com/aakbulak/configuration/JpaConfiguration.java,4/4/447723199f8826d6f3da9ffc63045a531e22cd37
 e
 5src/main/java/com/aakbulak/app/SpringBootCRUDApp.java,8/7/87063c20801d8f306d73eacbccd67ac93919361f
+k
+;src/main/java/com/aakbulak/repositories/UserRepository.java,2/b/2bdd6507f5ac3c40a52fec382d8e64daee738fbc
+i
+9src/main/java/com/aakbulak/controllers/AppController.java,0/7/07baec8b1320151fc43c586bc1e0e45479c9eb33
+d
+4src/main/java/com/aakbulak/util/CustomErrorType.java,d/5/d5f8675a52d06a66f34c3dbe5bda8a2a3588708d
+d
+4src/main/java/com/aakbulak/services/UserService.java,a/b/abf439da5216ee3977ec4e7ca6da1768dedf8a53
+Z
+*src/main/java/com/aakbulak/model/User.java,a/0/a03ca07fa2ccd704577923c97fcfc2901cd374d6
+m
+=src/main/java/com/aakbulak/controllers/RestApiController.java,d/0/d0b5f1d5c75ede48102243ab50fe17c89bd8b741

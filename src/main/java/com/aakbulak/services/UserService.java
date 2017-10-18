@@ -13,7 +13,7 @@ import java.util.List;
  * @since 0.0.16
  */
 
-@Service
+@Service("userService")
 @Transactional
 public class UserService {
 
