@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="crudApp">
+<html lang="en" ng-app="ExampleSpringBootWithAngular">
     <head>
         ${title}
         <link href="css/bootstrap.css" rel="stylesheet"/>
@@ -13,6 +13,6 @@
         <script src="js/lib/ngStorage.min.js"></script>
         <script src="js/app/app.js"></script>
         <script src="js/app/UserService.js"></script>
-        <script src="js/app/UserController.js"></script>
+        <script src="js/app/RestApiController.js"></script>
     </body>
 </html>

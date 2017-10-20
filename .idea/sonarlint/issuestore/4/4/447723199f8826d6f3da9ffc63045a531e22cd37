@@ -1,2 +1,3 @@
 
-°%squid:RedundantThrowsDeclarationCheck"uRemove the declaration of thrown exception 'javax.naming.NamingException', as it cannot be thrown from method's body.(ğïÊ¶üÿÿÿÿ8­ˆ”®ò+
+’squid:S1488"qImmediately return this expression instead of assigning it to the temporary variable "hibernateJpaVendorAdapter".(è•¯ùÿÿÿÿ8•»Ôøò+
+«%squid:RedundantThrowsDeclarationCheck"uRemove the declaration of thrown exception 'javax.naming.NamingException', as it cannot be thrown from method's body.(‹¿ã8•»Ôøò+

@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Import;
  */
 @Import(JpaConfiguration.class)
 @SpringBootApplication(scanBasePackages = "com.aakbulak")
-public class SpringBootCRUDApp {
+public class ExampleSpringBootWithAngular {
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootCRUDApp.class, args);
+        SpringApplication.run(ExampleSpringBootWithAngular.class, args);
     }
 }

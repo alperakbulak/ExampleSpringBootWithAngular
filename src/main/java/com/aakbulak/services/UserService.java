@@ -39,8 +39,8 @@ public class UserService {
     public List<User> findAllUsers(){
         return userRepository.findAll();
     }
-    public boolean isUserExist(Long id){
-        return userRepository.findOne(id) != null;
+    public boolean isUserExist(User user){
+        return findByName(user.getName()) != null;
     }
 
     public User findOne(Long id){

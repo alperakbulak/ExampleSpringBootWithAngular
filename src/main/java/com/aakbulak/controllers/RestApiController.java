@@ -1,11 +1,6 @@
 package com.aakbulak.controllers;
 
-
 import java.util.List;
-
-import com.aakbulak.model.User;
-import com.aakbulak.services.UserService;
-import com.aakbulak.util.CustomErrorType;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,17 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-/**
- * @author Alper AKBULAK<alper.akbulak@indbilisim.com.tr>
- * @since 0.0.16
- */
+import com.aakbulak.model.User;
+import com.aakbulak.services.UserService;
+import com.aakbulak.util.CustomErrorType;
+
 @RestController
 @RequestMapping("/api")
 public class RestApiController {
@@ -31,32 +22,41 @@ public class RestApiController {
     public static final Logger logger = LoggerFactory.getLogger(RestApiController.class);
 
     @Autowired
-    UserService userService;
+    UserService userService; //Service which will do all data retrieval/manipulation work
 
-    @RequestMapping(value = "/user/", method = RequestMethod.GET)
-    public ResponseEntity<List<User>> listAllUsers(){
+    // -------------------Retrieve All Users---------------------------------------------
+
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public ResponseEntity<List<User>> listAllUsers() {
         List<User> users = userService.findAllUsers();
-        if(users.isEmpty()){
+        if (users.isEmpty()) {
             return new ResponseEntity(HttpStatus.NO_CONTENT);
+            // You many decide to return HttpStatus.NOT_FOUND
         }
-        return new ResponseEntity<List<User>>(users,HttpStatus.OK);
+        return new ResponseEntity<List<User>>(users, HttpStatus.OK);
     }
+
+    // -------------------Retrieve Single User------------------------------------------
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> getUser(@PathVariable("id") long id){
-        logger.info("Fetching User with id {} ",id);
+    public ResponseEntity<?> getUser(@PathVariable("id") long id) {
+        logger.info("Fetching User with id {}", id);
         User user = userService.findOne(id);
-        if(user == null){
-            logger.error("User with id {}",id);
-            return new ResponseEntity(new CustomErrorType("User with id " + id + " not found"), HttpStatus.NOT_FOUND);
+        if (user == null) {
+            logger.error("User with id {} not found.", id);
+            return new ResponseEntity(new CustomErrorType("User with id " + id
+                    + " not found"), HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<User>(user,HttpStatus.OK);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/user/", method = RequestMethod.POST)
-    public ResponseEntity<?> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder){
-        logger.info("Creating User : {}",user);
-        if(userService.isUserExist(user.getId())){
+    // -------------------Create a User-------------------------------------------
+
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    public ResponseEntity<?> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
+        logger.info("Creating User : {}", user);
+
+        if (userService.isUserExist(user)) {
             logger.error("Unable to create. A User with name {} already exist", user.getName());
             return new ResponseEntity(new CustomErrorType("Unable to create. A User with name " +
                     user.getName() + " already exist."),HttpStatus.CONFLICT);
@@ -68,13 +68,15 @@ public class RestApiController {
         return new ResponseEntity<String>(headers, HttpStatus.CREATED);
     }
 
-    @RequestMapping(value="/user/{id}",method = RequestMethod.PUT)
-    public ResponseEntity<?> updateUser(@PathVariable("id") long id,@RequestBody User user){
-        logger.info("Updating User with id {}",id);
+    // ------------------- Update a User ------------------------------------------------
+
+    @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateUser(@PathVariable("id") long id, @RequestBody User user) {
+        logger.info("Updating User with id {}", id);
 
         User currentUser = userService.findOne(id);
 
-        if(currentUser == null){
+        if (currentUser == null) {
             logger.error("Unable to update. User with id {} not found.", id);
             return new ResponseEntity(new CustomErrorType("Unable to upate. User with id " + id + " not found."),
                     HttpStatus.NOT_FOUND);
@@ -83,11 +85,12 @@ public class RestApiController {
         currentUser.setName(user.getName());
         currentUser.setAge(user.getAge());
         currentUser.setSalary(user.getSalary());
-        userService.save(user);
 
-        return new ResponseEntity<User>(currentUser,HttpStatus.OK);
+        userService.save(currentUser);
+        return new ResponseEntity<User>(currentUser, HttpStatus.OK);
     }
 
+    // ------------------- Delete a User-----------------------------------------
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteUser(@PathVariable("id") long id) {
@@ -103,6 +106,8 @@ public class RestApiController {
         return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
     }
 
+    // ------------------- Delete All Users-----------------------------
+
     @RequestMapping(value = "/user/", method = RequestMethod.DELETE)
     public ResponseEntity<User> deleteAllUsers() {
         logger.info("Deleting All Users");
@@ -110,4 +115,5 @@ public class RestApiController {
         userService.deleteAll();
         return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
     }
+
 }

@@ -1,11 +1,11 @@
 /**
  * Created by alper on 17.10.2017.
  */
-var app = angular.module('crudApp',['ui.router','ngStorage']);
+var app = angular.module('ExampleSpringBootWithAngular',['ui.router','ngStorage']);
 
 app.constant('urls',{
    BASE:'http://localhost:9889/ExampleSpringBootWithAngular',
-   USER_SERVICE_API:'http://localhost:9889/ExampleSpringBootWithAngular/api/user/'
+   USER_SERVICE_API:'http://localhost:9889/ExampleSpringBootWithAngular/api/user'
 });
 
 app.config(['$stateProvider','$urlRouterProvider',
@@ -13,7 +13,7 @@ app.config(['$stateProvider','$urlRouterProvider',
         $stateProvider.state('home',{
             url:'/',
             templateUrl:'partials/list',
-            controller:'UserController',
+            controller:'RestApiController',
             controllerAs:'ctrl',
             resolve:{
                 users:function($q,UserService){
@@ -25,4 +25,4 @@ app.config(['$stateProvider','$urlRouterProvider',
             }
         });
         $urlRouterProvider.otherwise('/');
-    }]);
+}]);

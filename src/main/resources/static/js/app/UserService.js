@@ -2,7 +2,7 @@
 
 'use strict';
 
-angular.module('crudApp').factory('UserService',
+angular.module('ExampleSpringBootWithAngular').factory('UserService',
     ['$localStorage', '$http', '$q', 'urls',
         function ($localStorage, $http, $q, urls) {
 
