@@ -125,3 +125,17 @@ R
 "src/main/resources/application.yml,a/6/a6d8b8556fee0e03112ce2bf34b8cb27a7dc9e58
 V
 &src/main/resources/templates/index.ftl,4/e/4efedf999a2eacd3f296ea9bfe6acc2dce97ab9f
+e
+5src/main/resources/static/js/app/RestApiController.js,6/b/6bd52053a292718d78e6371df451c0dc83ab7faf
+_
+/src/main/resources/static/js/lib/angular.min.js,2/3/23e7bace538843d3957cffbd42ef92277805bb6e
+i
+9src/main/resources/static/js/lib/angular-ui-router.min.js,0/b/0bdec08a857494112ce60fb569cff7dbfc878c7a
+c
+3src/main/resources/static/js/lib/localforage.min.js,e/3/e344e0a64edead2421ba5ac91f125262811c4c18
+a
+1src/main/resources/static/js/lib/ngStorage.min.js,5/c/5c3fc3c0c308e0c789d7ac0f1286da670d495c12
+W
+'src/main/resources/static/js/app/app.js,3/0/30d9d82598a44b2ec272772be9850b4f600e5348
+_
+/src/main/resources/static/js/app/UserService.js,4/f/4fed342329b097af9cea74c655761cb7431e985f

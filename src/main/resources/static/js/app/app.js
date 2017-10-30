@@ -5,7 +5,7 @@ var app = angular.module('ExampleSpringBootWithAngular',['ui.router','ngStorage'
 
 app.constant('urls',{
    BASE:'http://localhost:9889/ExampleSpringBootWithAngular',
-   USER_SERVICE_API:'http://localhost:9889/ExampleSpringBootWithAngular/api/user'
+   USER_SERVICE_API:'http://localhost:9889/ExampleSpringBootWithAngular/api/user/'
 });
 
 app.config(['$stateProvider','$urlRouterProvider',
