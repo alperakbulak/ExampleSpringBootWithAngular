@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="ExampleSpringBootWithAngular">
     <head>
-        ${title}
         <link href="css/bootstrap.css" rel="stylesheet"/>
         <link href="css/app.css" rel="stylesheet">
     </head>

@@ -31,9 +31,3 @@ body, .form-control{
 .custom-width {
     width: 80px !important;
 }
-
-label {
-    padding-top:7px;
-    margin-bottom:0;
-    text-align:right;
-}
